@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Mis Admin Dashboard</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="assets/vendors/feather/feather.css">
+  <link rel="stylesheet" href="assets/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+
+  <link rel="stylesheet" href="assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
+  <link rel="stylesheet" href="assets/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="assets/js/select.dataTables.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="assets/images/mini-logo.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <a class="navbar-brand brand-logo me-5" href="index.html"><img src="assets/images/logo.png" class="me-2"
+            alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/mini-logo.png"
+            alt="logo" /></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
+                aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+              data-bs-toggle="dropdown">
+              <i class="icon-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="ti-info-alt mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted"> Just now </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="ti-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted"> Private message </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted"> 2 days ago </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+              <img src="assets/images/faces/face28.jpg" alt="profile" />
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i> Settings </a>
+              <a class="dropdown-item">
+                <i class="ti-power-off text-primary"></i> Logout </a>
+            </div>
+          </li>
+          <li class="nav-item nav-settings d-none d-lg-flex">
+            <a class="nav-link" href="#">
+              <i class="icon-ellipsis"></i>
+            </a>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+              aria-controls="ui-basic">
+              <i class="icon-layout fa fa-suitcase"></i>
+              <span class="menu-title">Delegation</span>
+
+            </a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
+              aria-controls="form-elements">
+              <i class="icon-columns fa fa-check-square-o"></i>
+              <span class="menu-title">Check List </span>
+
+            </a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="icon-bar-graph fa fa-bullseye"></i>
+              <span class="menu-title">Lead Application </span>
+
+            </a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="tables">
+              <i class="icon-grid-2 fa fa-phone"></i>
+              <span class="menu-title">Call Log </span>
+            </a>
+
+          </li>
+           
+
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold">Welcome Ankur Aggarwal</h3>
+                  <h6 class="font-weight-normal mb-0">Manage tasks, checklist, leads, calls, and team performance.</h6>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="grid-margin transparent">
+              <div class="col-md-12 mb-4 top-hed-cards stretch-card transparent">
+                <div class="card card-tale">
+                  <div class="card-body">
+                    <p class="mb-4">All Task</p>
+                    <p class="fs-30 mb-2">180</p>
+                    <p>10.00% (30 days)</p>
+                  </div>
+                </div>
+                <div class="card card-dark-blue">
+                  <div class="card-body">
+                    <p class="mb-4">Pending Task</p>
+                    <p class="fs-30 mb-2">70</p>
+                    <p>22.00% (30 days)</p>
+                  </div>
+                </div>
+                <div class="card card-light-blue">
+                  <div class="card-body">
+                    <p class="mb-4">Expired Task</p>
+                    <p class="fs-30 mb-2">30</p>
+                    <p>2.00% (30 days)</p>
+                  </div>
+                </div>
+                <div class="card card-light-danger">
+                  <div class="card-body">
+                    <p class="mb-4">Feature Task</p>
+                    <p class="fs-30 mb-2">40</p>
+                    <p>0.22% (30 days)</p>
+                  </div>
+                </div>
+                <div class="card card-light-success">
+                  <div class="card-body">
+                    <p class="mb-4">Completed Task</p>
+                    <p class="fs-30 mb-2">30</p>
+                    <p>0.22% (30 days)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title mb-0">Top Ten Employee score</p>
+                  <div class="table-responsive mt-4">
+                    <table class="table">
+                      <thead class="table-head">
+                        <tr>
+                          <th>Rank </th>
+                          <th>Employee Name</th>
+                          <th>Week Range</th>
+                          <th>Score</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face1.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                Jayvion Simon <br> <span class="sm-txt">s.jenkins@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">01 Dec - 07 Dec</td>
+                          <td>98%</td>
+
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face2.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                Michael Chen <br> <span class="sm-txt">m.chen@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">21 Oct - 28 Oct</td>
+                          <td>96%</td>
+
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face3.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                Amara Okafor <br> <span class="sm-txt">a.okafor@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">14 Oct - 21 Oct</td>
+                          <td>95%</td>
+
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face4.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                David Miller <br> <span class="sm-txt">d.miller@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">07 Oct - 14 Oct</td>
+                          <td>93%</td>
+
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face5.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                Elena Rodriguez <br> <span class="sm-txt">e.rodriguez@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">30 Sep - 06 Oct</td>
+                          <td>92%</td>
+
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face6.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                James Wilson <br> <span class="sm-txt">j.wilson@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">23 Sep - 30 Sep</td>
+                          <td>90%</td>
+
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face7.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                Priya Sharma <br> <span class="sm-txt">p.sharma@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">16 Sep - 23 Sep</td>
+                          <td>89%</td>
+
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face8.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                Linda White <br> <span class="sm-txt">l.white@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">02 Sep - 09 Sep</td>
+                          <td>88%</td>
+
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face9.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                Kevin Lee <br> <span class="sm-txt">k.lee@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">02 Sep - 09 Sep</td>
+                          <td>97%</td>
+
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>
+                            <div class="emp-data">
+                              <div class="emp-img">
+                                <img src="assets/images/faces/face10.jpg" alt="">
+                              </div>
+                              <div class="emp-name">
+                                Robert Taylor <br> <span class="sm-txt">r.taylor@company.com</span>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="font-weight-bold">08 Dec - 14 Dec</td>
+                          <td>88%</td>
+
+                        </tr>
+                      </tbody>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="card tale-bg">
+                <div class="card-people mt-auto">
+                  <img src="assets/images/dashboard/people.svg" alt="people">
+                  <div class="weather-info">
+                    <div class="d-flex">
+                      <div>
+                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun me-2"></i>31<sup>C</sup></h2>
+                      </div>
+                      <div class="ms-2">
+                        <h4 class="location font-weight-normal">Chicago</h4>
+                        <h6 class="font-weight-normal">Illinois</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+
+            <div class="col-md-4 ">
+              <div class="grid-margin transparent">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <p class="card-title">Lead Status</p>
+                    </div>
+                    <div class="daoughnutchart-wrapper">
+                      <div class="txt">
+                        <h2> 150 <br><span class="text-muted" style="font-size: 16px;">Total Leads</span></h2>
+                      </div>
+                      <canvas id="north-america-chart"></canvas>
+                    </div>
+                    <div id="north-america-chart-legend">
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="grid-margin transparent">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <p class="card-title">Lead Source </p>
+                    </div>
+                    <div class=" mb-3 mb-md-0 ">
+
+                      <div class="pro mb-3">
+                        <h5>Facebook</h5>
+                        <div class="progress progress-md">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50"
+                            aria-valuemin="0" aria-valuemax="100">50%</div>
+                        </div>
+                      </div>
+
+                      <div class="pro mb-3">
+                        <h5>Indiamart</h5>
+                        <div class="progress progress-md">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100">25%</div>
+                        </div>
+                      </div>
+
+                      <div class="pro mb-3">
+                        <h5>Tradeindia</h5>
+                        <div class="progress progress-md">
+                          <div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="15"
+                            aria-valuemin="0" aria-valuemax="100">15%</div>
+                        </div>
+                      </div>
+
+                      <div class="pro mb-3">
+                        <h5>Other</h5>
+                        <div class="progress progress-md">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="10"
+                            aria-valuemin="0" aria-valuemax="100">10%</div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-6 ">
+              <div class="grid-margin transparent">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <p class="card-title">Checklist Summary</p>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-4 mb-4 stretch-card transparent">
+                        <div class="card card-tale">
+                          <div class="card-body">
+                            <p class="mb-4">All Task</p>
+                            <p class="fs-30 mb-2">180</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-4 stretch-card transparent">
+                        <div class="card card-dark-blue">
+                          <div class="card-body">
+                            <p class="mb-4">Pending Task</p>
+                            <p class="fs-30 mb-2">70</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-4 stretch-card transparent">
+                        <div class="card card-light-blue">
+                          <div class="card-body">
+                            <p class="mb-4">Expired Task</p>
+                            <p class="fs-30 mb-2">40</p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 stretch-card transparent">
+                        <div class="card card-light-danger">
+                          <div class="card-body">
+                            <p class="mb-4">Feature Task</p>
+                            <p class="fs-30 mb-2">30</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                        <div class="card card-light-success">
+                          <div class="card-body">
+                            <p class="mb-4">Completed Task</p>
+                            <p class="fs-30 mb-2">40</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <table class="table table-borderless report-table mt-4">
+                        <tbody>
+                          <tr>
+                            <td class="">
+                              <h5 class="font-weight-bold mb-0">Timely Work</h5>
+                            </td>
+                            <td class="w-100 px-0">
+                              <div class="progress progress-md mx-4">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
+                                  aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              <h5 class="font-weight-bold mb-0">75%</h5>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="">
+                              <h5 class="font-weight-bold mb-0">After Plan Date Work</h5>
+                            </td>
+                            <td class="w-100 px-0">
+                              <div class="progress progress-md mx-4">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 30%"
+                                  aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              <h5 class="font-weight-bold mb-0">30%</h5>
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6 ">
+              <div class="grid-margin transparent">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <p class="card-title">Call Log Summary</p>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4  transparent">
+                        <div class="call-box blue">
+                          <div class="icon"><i class="fa fa-phone"></i></div>
+                          <div>
+                            <p>Total Calls</p>
+                            <p class="fs-30 mb-2">373</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6  mb-4">
+                        <div class="call-box green">
+                          <div class="icon"><i class="fa fa-phone-square"></i></div>
+                          <div>
+                            <p>Incoming Calls</p>
+                            <p class="fs-30 mb-2">80</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6  mb-4">
+                        <div class="call-box orange">
+                          <div class="icon"><i class="fa fa-sign-out"></i></div>
+                          <div>
+                            <p>Outgoing Calls</p>
+                            <p class="fs-30 mb-2">95</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6  mb-4">
+                        <div class="call-box teal">
+                          <div class="icon"><i class="fa fa-check-circle"></i></div>
+                          <div>
+                            <p>Connected Calls</p>
+                            <p class="fs-30 mb-2">150</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6  mb-4">
+                        <div class="call-box red">
+                          <div class="icon"><i class="fa fa-phone-square"></i></div>
+                          <div>
+                            <p>Missed Calls</p>
+                            <p class="fs-30 mb-2">25</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6  mb-4">
+                        <div class="call-box dark-red">
+                          <div class="icon"><i class="fa fa-times-circle"></i></div>
+                          <div>
+                            <p>Rejected Calls</p>
+                            <p class="fs-30 mb-2">18</p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row" id="">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title mb-0">Customer Data</p>
+                  <div class="table-responsive mt-4 customer-table">
+                    <table class="table table-bordered align-middle">
+                      <thead class="table-head">
+                        <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Mobile</th>
+                          <th>Email</th>
+                          <th>City</th>
+                          <th>State</th>
+                          <th>Address</th>
+                          <th>Count</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Alex Carter</td>
+                          <td>912-995-3238</td>
+                          <td>alex@email.com</td>
+                          <td>Mumbai</td>
+                          <td>Maharashtra</td>
+                          <td>Andheri East</td>
+                          <td>5</td>
+                          <!-- <td><span class="badge active">Active</span> </td> -->
+                          <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>2</td>
+                          <td>Jessica Wong</td>
+                          <td>912-998-3609</td>
+                          <td>jessica@email.com</td>
+                          <td>Pune</td>
+                          <td>Maharashtra</td>
+                          <td>Baner</td>
+                          <td>3</td>
+                          <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+
+                        <!-- Repeat rows up to 10 -->
+                        <tr>
+                          <td>3</td>
+                          <td>Mark Johnson</td>
+                          <td>912-999-3300</td>
+                          <td>mark@email.com</td>
+                          <td>Delhi</td>
+                          <td>Delhi</td>
+                          <td>Rohini</td>
+                          <td>7</td>
+                          <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>4</td>
+                          <td>Lisa Patel</td>
+                          <td>912-995-3300</td>
+                          <td>lisa@email.com</td>
+                          <td>Ahmedabad</td>
+                          <td>Gujarat</td>
+                          <td>Navrangpura</td>
+                          <td>4</td>
+                           <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>5</td>
+                          <td>Rahul Mehta</td>
+                          <td>912-993-2211</td>
+                          <td>rahul@email.com</td>
+                          <td>Surat</td>
+                          <td>Gujarat</td>
+                          <td>Vesu</td>
+                          <td>6</td>
+                          <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>Neha Sharma</td>
+                          <td>912-991-7788</td>
+                          <td>neha@email.com</td>
+                          <td>Jaipur</td>
+                          <td>Rajasthan</td>
+                          <td>Malviya Nagar</td>
+                          <td>2</td>
+                           <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>Amit Verma</td>
+                          <td>912-997-8899</td>
+                          <td>amit@email.com</td>
+                          <td>Indore</td>
+                          <td>Madhya Pradesh</td>
+                          <td>Vijay Nagar</td>
+                          <td>8</td>
+                           <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>Pooja Singh</td>
+                          <td>912-996-4455</td>
+                          <td>pooja@email.com</td>
+                          <td>Noida</td>
+                          <td>UP</td>
+                          <td>Sector 62</td>
+                          <td>1</td>
+                          <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>Karan Malhotra</td>
+                          <td>912-994-5566</td>
+                          <td>karan@email.com</td>
+                          <td>Chandigarh</td>
+                          <td>Punjab</td>
+                          <td>Sector 17</td>
+                          <td>9</td>
+                           <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>Anjali Rao</td>
+                          <td>912-992-6677</td>
+                          <td>anjali@email.com</td>
+                          <td>Bangalore</td>
+                          <td>Karnataka</td>
+                          <td>Whitefield</td>
+                          <td>10</td>
+                          <td class="action-icon"><a href=""><i class="fa fa-eye"></i></a>
+                              <a href=""><i class="fa fa-pencil"></i></a>
+                              <a href=""><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="assets/vendors/chart.js/chart.umd.js"></script>
+  <script src="assets/vendors/datatables.net/jquery.dataTables.js"></script>
+  <!-- <script src="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script> -->
+  <script src="assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
+  <script src="assets/js/dataTables.select.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="assets/js/off-canvas.js"></script>
+  <script src="assets/js/template.js"></script>
+  <script src="assets/js/settings.js"></script>
+  <script src="assets/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+  <script src="assets/js/dashboard.js"></script>
+
+</body>
+
+</html>
